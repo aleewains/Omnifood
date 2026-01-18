@@ -5,6 +5,7 @@
   list-style: none;
   display: flex;
   align-items: center;
+
   gap: 4.8rem;
 }
 .main-nav-link:link,
@@ -33,6 +34,21 @@
 .main-nav-link.nav-cta:active {
   background-color: #cf711f;
 }
+.btn-mobile-nav {
+  display: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.icon-mobile-nav {
+  height: 4.8rem;
+  width: 4.8rem;
+  color: #333;
+}
+.icon-mobile-nav[name="close-outline"] {
+  display: none;
+}
+
 /*............................... GRID......... */
 .hero {
   /* To center the hero */
@@ -52,6 +68,35 @@
   background-color: #fdf2e9;
   height: 9.6rem;
   padding: 0 4.8rem;
+
+  /* position: relative; */
+}
+/*            sticky-nav   */
+.sticky .header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 8rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: rgba(255, 255, 255, 0.6);
+  /* 2. Add the blur effect */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  /* Required for Safari support */
+  transition: backdrop-filter 0.5s ease, -webkit-backdrop-filter 0.5s ease;
+
+  box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.03);
+  z-index: 9;
+}
+.sticky .header.nav-visible {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.sticky .hero-section {
+  /* to maintain the flow because the header is made out of flow by making its position absolute */
+  margin-top: 9.6rem;
 }
 .hero-image {
   width: 100%;
@@ -132,7 +177,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  contain: c;
+  /* contain: content; */
   position: relative;
 }
 .step-image::before,
@@ -255,6 +300,7 @@
 }
 .testimonial-container {
   padding: 9.6rem;
+  /* align-self: start; */
 }
 .testimonials {
   display: grid;
